@@ -1,0 +1,29 @@
+footer {
+    background-color: white;
+    height: 5rem;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    height: 5rem;
+    background-color: white;
+    width: 100%;
+    transition: top 400ms ease 200ms;
+    border-bottom: 1px solid #f1f1f1;
+    color: #909090;
+}
+
+.flexBody {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    min-height: -moz-calc(100vh - 6rem);
+    min-height: -webkit-calc(100vh - 6rem);
+    min-height: calc(100vh - 6rem);
+    margin-top: 6rem;
+}
+
+main {
+    flex: 1;
+}
