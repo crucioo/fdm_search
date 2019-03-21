@@ -28,7 +28,7 @@ class Header extends Component{
                             </li>
                             <li className="top-search">
                                 <form>
-                                    <input />
+                                    <input maxlength="32" placeholder="搜索更新啦" />
                                 </form>
                             </li>
                             <li>
