@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -22,22 +20,39 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-    <style>
-      html{ 
-        font-size: 62.5%;
-      }
-      body {
-        padding: 0;
-        margin: 0;
-        background-color: #f6f6f6;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>React App</title>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #f6f6f6;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: #909090;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -47,19 +62,20 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-        var t = 0;
-        window.onscroll = function () {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            if (scrollTop > 450) {
-                if (t < scrollTop) {
-                document.getElementById('header').style.top = '-5rem'
-                } else {
-                document.getElementById('header').style.top = '0'
-                }
-                t = scrollTop;
-            }
+  <script>
+    var t = 0;
+    window.onscroll = function () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      if (scrollTop > 450) {
+        if (t < scrollTop) {
+          document.getElementById('header-container').style.top = '-5rem'
+        } else {
+          document.getElementById('header-container').style.top = '0'
         }
-      </script>
-  </body>
+        t = scrollTop;
+      }
+    }
+  </script>
+</body>
+
 </html>
