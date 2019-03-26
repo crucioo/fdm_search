@@ -28,12 +28,17 @@ class Header extends Component{
                             </li>
                             <li className="top-search">
                                 <form>
-                                    <input maxlength="32" placeholder="搜索更新啦" />
+                                    <input maxLength="32" placeholder="搜索更新啦" />
+                                    <img className="search-button" src={require("../../../assets/img/search.svg")} />
                                 </form>
                             </li>
-                            <li>
-                                写文章
+                            <li className="write">
+                                <button>写文章</button>
                             </li>
+                            <li className="message">
+                                <a><i className="icon-bell"></i></a>
+                            </li>
+                            <li className="user"></li>
                         </ul>
                     </nav>
                 </div>

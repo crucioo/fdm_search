@@ -3,6 +3,7 @@ import Footer from '../components/utils/Footer';
 import HomeList from '../components/home/HomeList';
 import React, { Component } from 'react';
 require('../assets/style.css');
+require('../assets/font.css');
 
 class Home extends Component {
     render() {
