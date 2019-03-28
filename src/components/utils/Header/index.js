@@ -33,7 +33,7 @@ class Header extends Component{
                                 </form>
                             </li>
                             <li className="write">
-                                <button>写文章</button>
+                                <button>提问题</button>
                             </li>
                             <li className="message">
                                 <a><i className="icon-bell"></i></a>
