@@ -15,6 +15,7 @@ footer {
     -o-transition: top 400ms ease 200ms;
     border-bottom: 1px solid #f1f1f1;
     color: #909090;
+    z-index: 1;
 }
 
 .flexBody {
@@ -98,8 +99,8 @@ img {
 .top-nav-content .top-search>form {
     display: flex;
     align-items: center;
-    border: 1px solid hsla(0, 0%, 59.2%, .2);
-    background-color: rgba(227, 231, 236, .2);
+    border: 1px solid hsla(0, 0%, 59.2%, 0.2);
+    background-color: rgba(227, 231, 236, 0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -166,8 +167,7 @@ img {
 
 .list-container>header {
     padding: 1rem 1rem;
-    border-bottom: 1px solid hsla(0, 0%, 59.2%, .1);
-
+    border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.1);
 }
 
 .list-container>header>nav>ul {
@@ -179,11 +179,11 @@ img {
 
 .list-container>header>nav>ul>li {
     padding: 0 1.2rem;
-    border-right: 1px solid hsla(0, 0%, 59.2%, .2);
+    border-right: 1px solid hsla(0, 0%, 59.2%, 0.2);
     cursor: pointer;
 }
 
-.list-container>header>nav>ul>li:hover>a{
+.list-container>header>nav>ul>li:hover>a {
     color: #007fff;
 }
 
@@ -191,7 +191,119 @@ img {
     border-right: none;
 }
 
-.home-aside {
+
+.homelist {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.homelist>li:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.homelist-item {
+    border-bottom: 1px solid rgba(178, 186, 194, 0.15);
+}
+
+.homelist .homelist-item .item-container {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.item-container .list-item-left {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.item-container .list-item-right {
+    flex: 0 0 auto;
+    width: 5rem;
+    height: 5rem;
+    margin-left: 2rem;
+    border-radius: 2px;
+    background-image: url(https://user-gold-cdn.xitu.io/2019/3/27/169bb255233ce443?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.item-meta>ul {
+    display: flex;
+    align-items: baseline;
+}
+
+.item-meta>ul>.meta-hot {
+    color: red;
+}
+
+.item-meta>ul>.meta-type {
+    color: #b71ed7;
+}
+
+.item-meta>ul>li:not(:last-child):after {
+    content: "·";
+    color: rgb(178, 186, 194);
+    margin: 0px 0.4em;
+}
+
+.item-title {
+    margin: 0.5rem 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-title>div {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: #2e3135;
+}
+
+.item-action>ul {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.item-action>ul>li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 2rem;
+    font-size: 1.083rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #b2bac2;
+    border-radius: 1px;
+    border: 1px solid #edeeef;
+    border-right: none;
+}
+
+.item-action>ul>li:last-child {
+    border: 1px solid #edeeef;
+}
+
+.item-action>ul>li>div {
+    display: flex;
+    align-items: center;
+    padding: 0 0.8rem;
+    height: 100%;
+}
+
+.item-action>ul>li>div>span {
+    color: #b2bac2;
+    margin-left: 0.2em;
+    font-weight: 700;
+}
+
+.item-action>ul>li>:hover {
+    background-color: #f7f8fa;
+}
+
+.homeaside {
     background-color: #fff;
     width: 20rem;
     position: absolute;
@@ -199,12 +311,38 @@ img {
     right: 0;
 }
 
-.list-item {
+.homeaside-header {
+    color: #333333;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
     display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 14px;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.list-item-left {
-    flex: 1;
+.homeaside-list {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
-.list-item-right {}
+.homeaside-list>a {
+    margin-right: 12px;
+    margin-bottom: 12px;
+    background-color: #f3f6f3;
+    cursor: pointer;
+    height: 30px;
+    color: #333333;
+    line-height: 30px;
+    padding-left: 22px;
+    padding-right: 22px;
+    border-radius: 30px;
+}
