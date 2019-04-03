@@ -1,6 +1,6 @@
 import Header from '../components/utils/Header';
 import Footer from '../components/utils/Footer';
-import HomeList from '../components/home/HomeList';
+import HomeBody from '../components/home';
 import React, { Component } from 'react';
 require('../assets/font.css');
 require('../assets/style.css');
@@ -10,7 +10,7 @@ class Home extends Component {
     return (
     <div className="flexBody">
         <Header />
-        <HomeList />
+        <HomeBody />
         <Footer /> 
     </div>
     );
