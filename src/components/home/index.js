@@ -28,6 +28,51 @@ const list=[{
     goodSum:64,
     commentSum:23,
     time:"1小时前"
+},{
+    id:4,
+    title:"什么是展期？",
+    isHot:false,
+    type:"问题",
+    label:"信贷",
+    goodSum:64,
+    commentSum:23,
+    time:"1天前"
+},{
+    id:5,
+    title:"什么是应降为降？",
+    isHot:false,
+    type:"问题",
+    label:"信贷/贷款五级分类",
+    goodSum:64,
+    commentSum:23,
+    time:"1小时前"
+},{
+    id:6,
+    title:"什么是展期？",
+    isHot:false,
+    type:"问题",
+    label:"信贷",
+    goodSum:64,
+    commentSum:23,
+    time:"1天前"
+},{
+    id:7,
+    title:"什么是应降为降？",
+    isHot:false,
+    type:"问题",
+    label:"信贷/贷款五级分类",
+    goodSum:64,
+    commentSum:23,
+    time:"1小时前"
+},{
+    id:8,
+    title:"什么是展期？",
+    isHot:false,
+    type:"问题",
+    label:"信贷",
+    goodSum:64,
+    commentSum:23,
+    time:"1天前"
 }];
 
 class HomeBody extends Component{
