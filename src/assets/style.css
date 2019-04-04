@@ -239,7 +239,7 @@ img {
     height: 5rem;
     margin-left: 2rem;
     border-radius: 2px;
-    background-image: url(https://user-gold-cdn.xitu.io/2019/3/27/169bb255233ce443?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1);
+    /* background-image: url(https://user-gold-cdn.xitu.io/2019/3/27/169bb255233ce443?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1); */
     background-size: cover;
     background-repeat: no-repeat;
 }
