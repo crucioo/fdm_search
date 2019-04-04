@@ -6,7 +6,7 @@ const HomeList = ({list})=> {
             {list.map(function(listItem){
                 return(
                     <li key={listItem.id} className="homelist-item">
-                        <a>
+                        <a href="/article" target="_blank">
                             <div className="item-container">
                                 <div className="list-item-left">
                                     <div className="item-meta">
@@ -37,8 +37,7 @@ const HomeList = ({list})=> {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="list-item-right">
-                                    <img />
+                                <div className="list-item-right" style={{backgroundImage:"url("+listItem.pic+")"}}>
                                 </div>
                             </div>
                         </a>
