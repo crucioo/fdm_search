@@ -1,6 +1,10 @@
 import React,{ Component } from 'react';
+// import {withRouter} from "react-router-dom";
 
 class Header extends Component{
+    submit(){
+        // console.log(history);
+    }
     render(){
         return(
             <header id="header-container">
@@ -34,6 +38,9 @@ class Header extends Component{
                             </li>
                             <li className="write">
                                 <button>提问题</button>
+                            </li>
+                            <li className="write">
+                                <button onClick={this.submit}>写文章</button>
                             </li>
                             <li className="message">
                                 <a><i className="icon-bell"></i></a>

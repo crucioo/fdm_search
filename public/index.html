@@ -23,8 +23,8 @@
   <title>React App</title>
   <style>
     * {
-      margin: 0;
       padding: 0;
+      margin: 0;
       list-style: none;
     }
 
@@ -43,41 +43,6 @@
       text-decoration: none;
       cursor: pointer;
       color: #909090;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    hr,
-    p,
-    blockquote,
-    /* structural elements 结构元素 */
-    dl,
-    dt,
-    dd,
-    ul,
-    ol,
-    li,
-    /* list elements 列表元素 */
-    pre,
-    /* text formatting elements 文本格式元素 */
-    form,
-    fieldset,
-    legend,
-    button,
-    input,
-    textarea,
-    /* form elements 表单元素 */
-    th,
-    td
-
-    /* table elements 表格元素 */
-      {
-      margin: 0;
-      padding: 0;
     }
 
     button {
@@ -122,16 +87,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   <script>
-    var t = 0;
-    window.onscroll = function () {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      if (scrollTop > 450) {
-        if (t < scrollTop) {
-          document.getElementById('header-container').style.top = '-5rem'
-        } else {
-          document.getElementById('header-container').style.top = '0'
+    if (window.location.pathname.substring(0, 8) === '/article') {
+      var t = 0;
+      window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (scrollTop > 250) {
+          if (t < scrollTop) {
+            document.getElementById('header-container').style.top = '-5rem'
+          } else {
+            document.getElementById('header-container').style.top = '0'
+          }
+          t = scrollTop;
         }
-        t = scrollTop;
       }
     }
   </script>
