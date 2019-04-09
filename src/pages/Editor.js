@@ -2,14 +2,15 @@ import React,{Component} from 'react';
 import 'braft-editor/dist/index.css';
 import BraftEditor from 'braft-editor';
 import { Route } from 'react-router-dom';
+require('../assets/editor.css');
 
 class Editor extends Component{
     constructor(){
         super();
-        this.state={
+        this.state = {
             editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // 设置编辑器初始内容
             outputHTML: '<p></p>'
-        }
+          }
     }
 
     componentDidMount () {
@@ -38,13 +39,13 @@ class Editor extends Component{
         return(
             <div>
                 <div className="editor-wrapper">
-                <BraftEditor
-                    value={this.state.editorState}
-                    onChange={this.handleChange}
-                />
+                    <BraftEditor
+                        value={this.state.editorState}
+                        onChange={this.handleChange}
+                    />
                 </div>
-                <h5>输出内容</h5>
-                <div className="output-content">{this.state.outputHTML}</div>
+                {/* <h5>输出内容</h5>
+                <div className="output-content">{this.state.outputHTML}</div> */}
             </div>
         )
     }

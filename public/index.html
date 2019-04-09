@@ -87,18 +87,16 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   <script>
-    if (window.location.pathname.substring(0, 8) === '/article') {
-      var t = 0;
-      window.onscroll = function () {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        if (scrollTop > 250) {
-          if (t < scrollTop) {
-            document.getElementById('header-container').style.top = '-5rem'
-          } else {
-            document.getElementById('header-container').style.top = '0'
-          }
-          t = scrollTop;
+    var t = 0;
+    window.onscroll = function () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      if (scrollTop > 250) {
+        if (t < scrollTop) {
+          document.getElementById('header-container').style.top = '-5rem'
+        } else {
+          document.getElementById('header-container').style.top = '0'
         }
+        t = scrollTop;
       }
     }
   </script>

@@ -1,9 +1,15 @@
 import React,{ Component } from 'react';
-// import {withRouter} from "react-router-dom";
+import {withRouter} from 'react-router-dom'
+
+let history;
 
 class Header extends Component{
-    submit(){
-        // console.log(history);
+    componentWillMount () {
+        history = this.props.history;
+        console.log(this.props)
+    }
+    writeNew(){
+        history.push('/editor');
     }
     render(){
         return(
@@ -40,7 +46,7 @@ class Header extends Component{
                                 <button>提问题</button>
                             </li>
                             <li className="write">
-                                <button onClick={this.submit}>写文章</button>
+                                <button onClick={this.writeNew}>写文章</button>
                             </li>
                             <li className="message">
                                 <a><i className="icon-bell"></i></a>
@@ -53,4 +59,4 @@ class Header extends Component{
         )
     }
 }
-export default Header;
+export default withRouter(Header);
