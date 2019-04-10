@@ -4,14 +4,14 @@ import {withRouter} from 'react-router-dom'
 let history;
 
 class Header extends Component{
-    componentWillMount () {
+    componentWillMount() {
         history = this.props.history;
-        console.log(this.props)
     }
-    writeNew(){
+    writeNew() {
         history.push('/editor');
     }
     render(){
+        const {openModal} = this.props;
         return(
             <header id="header-container">
                 <div id="header-content">
@@ -43,7 +43,7 @@ class Header extends Component{
                                 </form>
                             </li>
                             <li className="write">
-                                <button>提问题</button>
+                                <button onClick={openModal}>提问题</button>
                             </li>
                             <li className="write">
                                 <button onClick={this.writeNew}>写文章</button>

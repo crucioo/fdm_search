@@ -414,3 +414,92 @@ img {
     color: #b2bac2;
     margin-left: 0.4rem;
 }
+
+.modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .65);
+    z-index: 500;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* css绘制关闭按钮 */
+.close {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 3%;
+    cursor: pointer;
+}
+
+.close::before,
+.close::after {
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 100%;
+    border-top-style: solid;
+    border-top-color: #000;
+    border-top-width: 2px;
+}
+
+.close::before {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(-45deg);
+}
+
+
+
+.modal-container {
+    position: relative;
+    background-color: white;
+    width: 640px;
+    margin: 0 auto;
+    top: 20%;
+    border-radius: 2px;
+}
+
+.modal-header {
+    display: flex;
+    height: 3.333rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #17181a;
+    font-weight: 500;
+}
+
+.modal-body{
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-editor{
+    width: 100%;
+    min-height: 75px;
+    max-height: 136px;
+    padding: 5px;
+    background-color: rgba(226,230,235,.2);
+    border-radius: 2px;
+    border: 1px solid hsla(0,0%,59.2%,.2);
+}
