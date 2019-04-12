@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React,{ Component,PureComponent } from 'react';
 import HomeList from './componets/HomeList';
 import Sider from './componets/Sider';
 
@@ -84,12 +84,9 @@ const list=[{
     pic:"https://user-gold-cdn.xitu.io/2019/3/27/169bb255233ce443?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1"
 }];
 
-class HomeBody extends Component{
+class HomeBody extends PureComponent{
     constructor(){
         super();
-    }
-    componentWillMount(){
-
     }
     render(){
         return(
