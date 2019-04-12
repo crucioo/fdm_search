@@ -1,9 +1,9 @@
-import React,{ Component } from 'react';
+import React,{ PureComponent } from 'react';
 import {withRouter} from 'react-router-dom'
 
 let history;
 
-class Header extends Component{
+class Header extends PureComponent{
     componentWillMount() {
         history = this.props.history;
     }
@@ -30,9 +30,6 @@ class Header extends Component{
                                     </li>
                                     <li>
                                         <a>问题</a>
-                                    </li>
-                                    <li>
-                                        <a>我的</a>
                                     </li>
                                 </ul>
                             </li>
