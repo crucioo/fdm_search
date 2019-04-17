@@ -1,15 +1,50 @@
 import React,{ PureComponent } from 'react';
-import {withRouter} from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import {withRouter} from 'react-router-dom';
+import searchImgSrc from '../../../assets/img/search.svg';
+import searchImgSrcFocus from '../../../assets/img/search-focus.svg';
+import userImg from '../../../assets/img/user.svg';
 
 let history;
 
 class Header extends PureComponent{
+    constructor(){
+        super();
+        this.state={
+            isFocus:false, //内部状态，控制搜索框样式变换
+            isShow:false //内部状态，控制头像下方菜单显示隐藏
+        }
+    }
+
     componentWillMount() {
         history = this.props.history;
     }
+
+    componentDidMount(){
+        document.getElementsByTagName("html")[0].addEventListener("click",(e)=>{
+            if(this.state.isShow===true){
+                e.stopPropagation(); //阻止点击头像时事件冒泡到react事件系统
+                this.setState({isShow:false});
+            }
+        });
+    }
+
+    focus=()=>{
+        this.setState({isFocus:true});
+    }
+
+    blur=()=>{
+        this.setState({isFocus:false});
+    }
+
+    showMenu=(e)=>{
+        this.setState({isShow:true});
+    }
+
     writeNew() {
         history.push('/editor');
     }
+
     render(){
         const {openModal} = this.props;
         return(
@@ -34,9 +69,9 @@ class Header extends PureComponent{
                                 </ul>
                             </li>
                             <li className="top-search">
-                                <form>
-                                    <input maxLength="32" placeholder="搜索更新啦" />
-                                    <img className="search-button" src={require("../../../assets/img/search.svg")} />
+                                <form className={(this.state.isFocus===false)?"top-form":"top-form form-active"}>
+                                    <input onFocus={this.focus} onBlur={this.blur} maxLength="32" placeholder="搜索更新啦" />
+                                    <img className="search-button" src={(this.state.isFocus===false)?searchImgSrc:searchImgSrcFocus} />
                                 </form>
                             </li>
                             <li className="write">
@@ -48,7 +83,33 @@ class Header extends PureComponent{
                             <li className="message">
                                 <a><i className="icon-bell"></i></a>
                             </li>
-                            <li className="user"></li>
+                            <li className="user">
+                                <img onClick={this.showMenu} src={userImg} />
+                                <ul style={(this.state.isShow===true)?{display:"block"}:{display:"none"}} className="menu">
+                                    <div className="item-group">
+                                        <li className="item">
+                                            <a>
+                                                <i className="icon-user"></i>
+                                                <span>个人资料</span>
+                                            </a>
+                                        </li>
+                                        <li className="item">
+                                            <a>
+                                                <i className="icon-good"></i>
+                                                <span>我赞过的</span>
+                                            </a>
+                                        </li>
+                                    </div>
+                                    <div className="item-group">
+                                        <li className="item">
+                                            <a>
+                                                <i className="icon-outgoing"></i>
+                                                <span>登出</span>
+                                            </a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>

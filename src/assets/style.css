@@ -65,6 +65,7 @@ img {
     align-items: center;
     height: 100%;
     justify-content: flex-end;
+    position: relative;
 }
 
 .top-nav-content .top-menu {
@@ -97,7 +98,7 @@ img {
     align-items: center;
 }
 
-.top-nav-content .top-search>form {
+.top-nav-content .top-search .top-form {
     display: flex;
     align-items: center;
     border: 1px solid hsla(0, 0%, 59.2%, 0.2);
@@ -106,6 +107,10 @@ img {
     align-items: center;
     justify-content: space-between;
     border-radius: 2px;
+}
+
+.top-nav-content .top-search .form-active{
+   border-color: #007fff;
 }
 
 .top-nav-content .top-search input {
@@ -123,7 +128,6 @@ img {
     padding: 0 0.5rem;
     cursor: pointer;
 }
-
 
 .top-nav-content .write {
     height: 100%;
@@ -164,6 +168,59 @@ img {
 
 .top-nav-content .message:hover>a {
     color: #007fff;
+}
+
+.user{
+    padding: 0 0 0 1.2rem;
+    cursor: pointer;
+}
+
+.user .menu{
+    width: 13rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border: 1px solid rgba(177,180,185,.45);
+    border-radius: 4px;
+    font-size: 1.6rem;
+}
+
+.user .menu .item-group{
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.04);
+}
+
+.user .menu .item-group .item{
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.user .menu .item-group .item:hover{
+    background-color: hsla(0,0%,94.9%,.5);
+}
+
+.user .menu .item-group .item a{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #71777c;
+}
+
+.user .menu .item-group .item i{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.8rem;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    color: #b2bac2;
+}
+
+.user .menu .item-group .item span{
+    margin-left: 0;
+    flex-grow: 1;
 }
 
 .list-container {
