@@ -50,6 +50,10 @@ main {
     margin-right: 2rem;
 }
 
+.top-logo img{
+    width: 98px;
+}
+
 img {
     width: auto;
     height: auto;
@@ -374,10 +378,14 @@ img {
     height: 100%;
 }
 
-.item-action>ul>li>div>span {
+.item-action .goodSum {
     color: #b2bac2;
     margin-left: 0.2em;
     font-weight: 700;
+}
+
+.item-action .goodSum.active{
+    color: #6cbd45;
 }
 
 .item-action>ul>li>:hover {

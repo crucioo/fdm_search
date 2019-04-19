@@ -23,7 +23,7 @@ class Header extends PureComponent{
     componentDidMount(){
         document.getElementsByTagName("html")[0].addEventListener("click",(e)=>{
             if(this.state.isShow===true){
-                e.stopPropagation(); //阻止点击头像时事件冒泡到react事件系统
+                // e.stopPropagation(); //阻止点击头像时事件冒泡到react事件系统
                 this.setState({isShow:false});
             }
         });
@@ -51,7 +51,7 @@ class Header extends PureComponent{
             <header id="header-container">
                 <div id="header-content">
                     <a className="top-logo">
-                        <img src={require("../../../assets/img/logo.svg")} />    
+                        <img src={require("../../../assets/img/fdm.png")} />    
                     </a>
                     <nav className="top-nav">
                         <ul className="top-nav-content">

@@ -1,12 +1,15 @@
 import React from 'react';
+import Good from '../../../assets/img/good.svg';
+import Gooded from '../../../assets/img/gooded.svg';
+import Comment from '../../../assets/img/comment.svg';
 
-const HomeList = ({list})=> {
+const HomeList = ({list,handleGood})=> {
     return(
         <ul className="homelist">
             {list.map(function(listItem){
                 return(
                     <li key={listItem.id} className="homelist-item">
-                        <a href="/article" target="_blank">
+                        <a href="#/article">
                             <div className="item-container">
                                 <div className="list-item-left">
                                     <div className="item-meta">
@@ -23,14 +26,14 @@ const HomeList = ({list})=> {
                                     <div className="item-action">
                                         <ul>
                                             <li>
-                                                <div>
-                                                    <img src={require("../../../assets/img/good.svg")}/>
-                                                    <span>{listItem.goodSum}</span>
+                                                <div onClick={handleGood.bind(null,listItem)}>
+                                                    <img src={(listItem.isGood)?Gooded:Good}/>
+                                                    <span className={(listItem.isGood)?"goodSum active":"goodSum"}>{listItem.goodSum}</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div>
-                                                    <img src={require("../../../assets/img/comment.svg")}/>
+                                                    <img src={Comment}/>
                                                     <span>{listItem.commentSum}</span>
                                                 </div>
                                             </li>
