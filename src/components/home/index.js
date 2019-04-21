@@ -99,19 +99,19 @@ class HomeBody extends PureComponent{
             list:list
         }
     }
-    componentDidUpdate(){
-        console.log(this.state.list);
-    }
     
     handleGood=(listItem,e)=>{
         if(listItem.isGood===false){
             listItem.isGood=true;
+            listItem.goodSum++;
+            listItem = {...listItem}
             this.setState({listItem});
         }else{
             listItem.isGood=false;
+            listItem.goodSum--;
+            listItem = {...listItem}
             this.setState({listItem});
         }
-        console.log(listItem)
         e.preventDefault();
     }
 

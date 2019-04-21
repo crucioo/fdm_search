@@ -50,7 +50,7 @@ class Header extends PureComponent{
         return(
             <header id="header-container">
                 <div id="header-content">
-                    <a className="top-logo">
+                    <a href="#/home" className="top-logo">
                         <img src={require("../../../assets/img/fdm.png")} />    
                     </a>
                     <nav className="top-nav">

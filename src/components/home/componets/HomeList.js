@@ -31,12 +31,12 @@ const HomeList = ({list,handleGood})=> {
                                                     <span className={(listItem.isGood)?"goodSum active":"goodSum"}>{listItem.goodSum}</span>
                                                 </div>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <div>
                                                     <img src={Comment}/>
                                                     <span>{listItem.commentSum}</span>
                                                 </div>
-                                            </li>
+                                            </li> */}
                                         </ul>
                                     </div>
                                 </div>
