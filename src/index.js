@@ -13,7 +13,7 @@ ReactDOM.render((
             <Route exact path='/' render={()=><Redirect to='/home'></Redirect>} />
             <Route path='/home' component={Home} />
             <Route path='/editor' component={Editor} />
-            <Route path='/article' component={Article}/>
+            <Route path='/article/:id' component={Article}/>
         </Switch>
     </HashRouter>
     ),document.getElementById('root'));

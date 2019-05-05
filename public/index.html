@@ -22,11 +22,11 @@
     -->
   <title>React App</title>
   <style>
-    * {
+    /* * {
       padding: 0;
       margin: 0;
       list-style: none;
-    }
+    } */
 
     html {
       font-size: 62.5%;
@@ -88,17 +88,30 @@
     -->
   <script>
     var t = 0;
-    window.onscroll = function () {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      if (scrollTop > 250) {
-        if (t < scrollTop) {
-          document.getElementById('header-container').style.top = '-5rem'
-        } else {
-          document.getElementById('header-container').style.top = '0'
+
+    function throttle(){ //节流
+      var canRun=true;
+      return function(){
+        if(!canRun){
+          return;
         }
-        t = scrollTop;
+        canRun=false;
+        setTimeout(function(){
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (t < scrollTop) {
+              if(scrollTop>200){
+                document.getElementById('header-container').style.top = '-5rem'
+              }
+            } else {
+              document.getElementById('header-container').style.top = '0'
+            }
+          t = scrollTop;
+          canRun=true;
+        },250);
       }
     }
+
+    window.onscroll = throttle();
   </script>
 </body>
 

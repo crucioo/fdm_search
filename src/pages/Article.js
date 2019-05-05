@@ -6,6 +6,7 @@ import QuestionNew from '../components/modal/QuestionNew';
 import { Route } from 'react-router-dom';
 
 const textAreaSize=120;//输入框size
+let articleId;
 
 class Article extends Component{
     constructor(){
@@ -15,6 +16,9 @@ class Article extends Component{
             questionValue:'',
             textSum:textAreaSize
         };
+    }
+    componentWillMount(){
+        articleId = this.props.match.params.id;
     }
     handleQuestionValue=(e)=>{
         this.setState({
@@ -46,7 +50,7 @@ class Article extends Component{
         return(
             <div className="flexBody">
                 <Header {...headerProps}/>
-                <ArticleBody />
+                <ArticleBody articleId={articleId}/>
                 <Footer />
                 <QuestionNew {...questionNewProps} />
             </div>

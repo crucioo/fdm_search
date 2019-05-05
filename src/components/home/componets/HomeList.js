@@ -9,7 +9,7 @@ const HomeList = ({list,handleGood})=> {
             {list.map(function(listItem){
                 return(
                     <li key={listItem.id} className="homelist-item">
-                        <a href="#/article">
+                        <a href={`#/article/${listItem.id}`}>
                             <div className="item-container">
                                 <div className="list-item-left">
                                     <div className="item-meta">
