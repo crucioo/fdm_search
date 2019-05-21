@@ -22,11 +22,11 @@
     -->
   <title>React App</title>
   <style>
-    /* * {
+    * {
       padding: 0;
       margin: 0;
       list-style: none;
-    } */
+    }
 
     html {
       font-size: 62.5%;
@@ -97,7 +97,9 @@
         }
         canRun=false;
         setTimeout(function(){
+          
           var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          // console.log(scrollTop)
             if (t < scrollTop) {
               if(scrollTop>200){
                 document.getElementById('header-container').style.top = '-5rem'
