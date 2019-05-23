@@ -4,6 +4,11 @@ import Sider from './componets/Sider';
 import Axios from 'axios';
 import Mock from '../../mock/mock';
 
+let pageNum=1;
+let pageSize=8;
+let memoryList=[]; 
+let pageTotal;
+
 class HomeBody extends PureComponent{
     constructor(){
         super();
@@ -11,44 +16,69 @@ class HomeBody extends PureComponent{
             list:[]
         }
     }
+    
 
     componentDidMount() {
-        var _this = this;
+        this.refresh();
+    }
+
+    refresh=()=>{
         Axios.get('/fdm/homelist.json',{
             params: { 
                 page: 1,
-                size: 10
+                size: pageSize
              }
         })
-        .then(function(data){
-            _this.setState({list:data.data});
+        .then((data)=>{
+            memoryList=data.data.list;
+            pageTotal=data.data.pageTotal;
+            this.setState({list:data.data.list});
         })
-        .catch(function(err){
+        .catch((err)=>{
             console.log(err);
         })
     }
-    
-    handleGood=(listItem,e)=>{
+
+    more=()=>{
+        if(pageTotal<=pageNum){
+            console.log('我是有底线的~~');
+            return;
+        }
+        Axios.get('/fdm/homelist.json',{
+            params: { 
+                page: ++pageNum,
+                size: pageSize
+             }
+        })
+        .then((data)=>{
+            this.setState({list:memoryList.concat(data.data.list)});
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    handleGood=(listItem,list,e)=>{
         if(listItem.isGood===false){
             listItem.isGood=true;
             listItem.goodSum++;
-            listItem = {...listItem}
-            this.setState({listItem});
+            this.setState({list});
         }else{
             listItem.isGood=false;
             listItem.goodSum--;
-            listItem = {...listItem}
-            this.setState({listItem});
+            this.setState({list});
         }
         e.preventDefault();
     }
 
     render(){
         const homeListProp ={
-            list:this.state.list,
+            list:[...this.state.list],
+            pageSize:10,
             handleGood:this.handleGood,
-
+            more:this.more
         }
+        
         return(
             <main>
                 <div className="list-container">

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component,PureComponent } from 'react';
 import Good from '../../../assets/img/good.svg'; 
 import Gooded from '../../../assets/img/gooded.svg';
 import Comment from '../../../assets/img/comment.svg';
 
 let clientHeight,contentHeight;
 
-function throttleScroll(){
+function throttleScroll(more){
     var canRun=true;
     return function(){
       if(!canRun){
@@ -15,46 +15,45 @@ function throttleScroll(){
       setTimeout(function(){
         contentHeight = document.getElementsByClassName('homelist')[0].lastChild.getBoundingClientRect().bottom;
         if(contentHeight<=clientHeight){
-            alert(22)
             /*异步请求 */
+            
+            more()
         }
         canRun=true;
       },250);
     }
   }
 
-  function throttleResize(){
-    var canRun=true;
-    return function(){
-      if(!canRun){
-        return;
-      }
-      canRun=false;
-      setTimeout(function(){
-        clientHeight = document.documentElement.clientHeight;
-        canRun=true;
-      },250);
-    }
-  }
+//   function throttleResize(){
+//     var canRun=true;
+//     return function(){
+//       if(!canRun){
+//         return;
+//       }
+//       canRun=false;
+//       setTimeout(function(){
+//         clientHeight = document.documentElement.clientHeight;
+//         canRun=true;
+//       },250);
+//     }
+//   }
 
-class HomeList extends Component {
-    constructor(props){
-        super(props);
+class HomeList extends PureComponent {
+    constructor(){
+        super();
     }
     componentDidMount(){
+        const {more} =this.props
         clientHeight = document.documentElement.clientHeight;
-        window.onscroll = throttleScroll();
-        window.onresize = throttleResize();
+        window.onscroll = throttleScroll(more);
+        // window.onresize = throttleResize();
     }
-    componentDidUpdate(){
 
-    }
     render(){
         const{list,handleGood} = this.props;
-
         return(
             <ul className="homelist">
-                {list.map(function(listItem){
+                {list.map((listItem)=>{
                     return(
                         <li key={listItem.id} className="homelist-item">
                             <a href={`#/article/${listItem.id}`}>
@@ -74,7 +73,7 @@ class HomeList extends Component {
                                         <div className="item-action">
                                             <ul>
                                                 <li>
-                                                    <div onClick={handleGood.bind(null,listItem)}>
+                                                    <div onClick={handleGood.bind(null,listItem,list)}>
                                                         <img src={(listItem.isGood)?Gooded:Good}/>
                                                         <span className={(listItem.isGood)?"goodSum active":"goodSum"}>{listItem.goodSum}</span>
                                                     </div>
