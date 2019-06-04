@@ -5,24 +5,24 @@ import Comment from '../../../assets/img/comment.svg';
 
 let clientHeight,contentHeight;
 
-function throttleScroll(more){
-    var canRun=true;
-    return function(){
-      if(!canRun){
-        return;
-      }
-      canRun=false;
-      setTimeout(function(){
-        contentHeight = document.getElementsByClassName('homelist')[0].lastChild.getBoundingClientRect().bottom;
-        if(contentHeight<=clientHeight){
-            /*异步请求 */
+// function throttleScroll(more){ //加载更多数据
+//     var canRun=true;
+//     return function(){
+//       if(!canRun){
+//         return;
+//       }
+//       canRun=false;
+//       setTimeout(function(){
+//         contentHeight = document.getElementsByClassName('homelist')[0].lastChild.getBoundingClientRect().bottom;
+//         if(contentHeight<=clientHeight){ //列表最后一个元素底端到屏幕顶端的距离<=可视区域高度
+//             /*异步请求，加载更多 */
             
-            more()
-        }
-        canRun=true;
-      },250);
-    }
-  }
+//             more()
+//         }
+//         canRun=true;
+//       },250);
+//     }
+//   }
 
 //   function throttleResize(){
 //     var canRun=true;
@@ -45,8 +45,7 @@ class HomeList extends PureComponent {
     componentDidMount(){
         const {more} =this.props
         clientHeight = document.documentElement.clientHeight;
-        window.onscroll = throttleScroll(more);
-        // window.onresize = throttleResize();
+        // window.onscroll = throttleScroll(more);
     }
 
     render(){

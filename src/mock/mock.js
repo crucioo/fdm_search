@@ -1,5 +1,7 @@
 import Mock from 'mockjs';
 
+
+
 const list=[{
     id:1,
     title:"关于贷款的五级分类",
@@ -178,7 +180,7 @@ const list=[{
     pic:"https://user-gold-cdn.xitu.io/2019/3/27/169bb255233ce443?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1"
 }];
 
-Mock.mock(/\/fdm\/homelist\.json/,'get',function(options){
+Mock.mock(/\/fdm\/homelist\.json/,'get',function(options){ //分页模拟
     let url = options.url,arr=[],result,obj={};
     arr = url.substring(url.indexOf('?')+1).split('&');
     for(let i=0;i<arr.length;i++){

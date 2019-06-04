@@ -16,8 +16,6 @@ class HomeBody extends PureComponent{
             list:[]
         }
     }
-    
-
     componentDidMount() {
         this.refresh();
     }
@@ -39,24 +37,24 @@ class HomeBody extends PureComponent{
         })
     }
 
-    more=()=>{
-        if(pageTotal<=pageNum){
-            console.log('我是有底线的~~');
-            return;
-        }
-        Axios.get('/fdm/homelist.json',{
-            params: { 
-                page: ++pageNum,
-                size: pageSize
-             }
-        })
-        .then((data)=>{
-            this.setState({list:memoryList.concat(data.data.list)});
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
+    // more=()=>{
+    //     if(pageTotal<=pageNum){
+    //         console.log('我是有底线的~~');
+    //         return;
+    //     }
+    //     Axios.get('/fdm/homelist.json',{
+    //         params: { 
+    //             page: ++pageNum,
+    //             size: pageSize
+    //          }
+    //     })
+    //     .then((data)=>{
+    //         this.setState({list:memoryList.concat(data.data.list)});
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err);
+    //     })
+    // }
 
     handleGood=(listItem,list,e)=>{
         if(listItem.isGood===false){
